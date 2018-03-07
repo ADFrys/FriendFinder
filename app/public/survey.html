@@ -27,7 +27,7 @@
 	    			<h3>Question 1</h3>
 	    			<h4>You enjoy spending time outdoors.</h4>
 					<div class="input-group">
-						<select class="chosen-select" id="q1" required>
+						<select class="chosen-select form-control" id="q1" required>
 							<option value="">Select an answer</option>
 							<option value="1">1 Strongly Disagree</option>
 		  					<option value="2">2</option>
@@ -38,7 +38,7 @@
 	   					<br>
 	   					<h3>Question 2</h3>
 	    				<h4>You prefer to hang out in a big group of people.</h4>
-	   					<select class="chosen-select" id="q2" required>
+	   					<select class="chosen-select form-control" id="q2" required>
 							<option value="">Select an answer</option>
 							<option value="1">1 Strongly Disagree</option>
 		  					<option value="2">2</option>
@@ -49,7 +49,7 @@
 	   					<br>
 	   					<h3>Question 3</h3>
 	    				<h4>You enjoy daydreaming about your future goals.</h4>
-	   					<select class="chosen-select" id="q3" required>
+	   					<select class="chosen-select form-control" id="q3" required>
 							<option value="">Select an answer</option>
 							<option value="1">1 Strongly Disagree</option>
 		  					<option value="2">2</option>
@@ -60,7 +60,7 @@
 	   					<br>
 	   					<h3>Question 4</h3>
 	    				<h4>You are very organized.</h4>
-	   					<select class="chosen-select" id="q4" required>
+	   					<select class="chosen-select form-control" id="q4" required>
 							<option value="">Select an answer</option>
 							<option value="1">1 Strongly Disagree</option>
 		  					<option value="2">2</option>
@@ -71,7 +71,7 @@
 	   					<br>
 	   					<h3>Question 5</h3>
 	    				<h4>You would rather spend time watching TV alone than going out to a club.</h4>
-	   					<select class="chosen-select" id="q5" required>
+	   					<select class="chosen-select form-control" id="q5" required>
 							<option value="">Select an answer</option>
 							<option value="1">1 Strongly Disagree</option>
 		  					<option value="2">2</option>
@@ -82,7 +82,7 @@
 	   					<br>
 	   					<h3>Question 6</h3>
 	    				<h4>You have a strong appreciation for the arts.</h4>
-	   					<select class="chosen-select" id="q6" required>
+	   					<select class="chosen-select form-control" id="q6" required>
 							<option value="">Select an answer</option>
 							<option value="1">1 Strongly Disagree</option>
 		  					<option value="2">2</option>
@@ -93,7 +93,7 @@
 	   					<br>
 	   					<h3>Question 7</h3>
 	    				<h4>You love sports.</h4>
-	   					<select class="chosen-select" id="q7" required>
+	   					<select class="chosen-select form-control" id="q7" required>
 							<option value="">Select an answer</option>
 							<option value="1">1 Strongly Disagree</option>
 		  					<option value="2">2</option>
@@ -104,7 +104,7 @@
 	   					<br>
 	   					<h3>Question 8</h3>
 	    				<h4>You enjoy long, intellectual conversations.</h4>
-	   					<select class="chosen-select" id="q8" required>
+	   					<select class="chosen-select form-control" id="q8" required>
 							<option value="">Select an answer</option>
 							<option value="1">1 Strongly Disagree</option>
 		  					<option value="2">2</option>
@@ -115,7 +115,7 @@
 	   					<br>
 	   					<h3>Question 9</h3>
 	    				<h4>You have an active lifestyle.</h4>
-	   					<select class="chosen-select" id="q9" required>
+	   					<select class="chosen-select form-control" id="q9" required>
 							<option value="">Select an answer</option>
 							<option value="1">1 Strongly Disagree</option>
 		  					<option value="2">2</option>
@@ -126,7 +126,7 @@
 	   					<br>
 	   					<h3>Question 10</h3>
 	    				<h4>You enjoy debating issues in society with others.</h4>
-	   					<select class="chosen-select" id="q10" required>
+	   					<select class="chosen-select form-control" id="q10" required>
 							<option value="">Select an answer</option>
 							<option value="1">1 Strongly Disagree</option>
 		  					<option value="2">2</option>
@@ -136,7 +136,7 @@
 	   					</select>
 	          		</div>
 	          	<br><br>
-	          	<button type="submit" class="btn btn-primary btn-lg" id="submit"><span class="glyphicon glyphicon-ok"></span> Submit</button>
+	          	<button type="submit" class="btn btn-primary btn-lg" id="submit" value="submit"><span class="glyphicon glyphicon-ok"></span> Submit</button>
 	          	</form>
 			</div>
 		</div>
@@ -148,5 +148,70 @@
 	  	  </div>
 	  	</div>
 	</div>
+
+  <div id="results-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" data-dismiss="modal">&times;</span>
+          <h2>Best Cartoon Character Friend Match</h2>
+        </div>
+        <div class="modal-body">
+        	<h2 id="best-match-name"></h2>
+        	<img id="best-match-image">
+        </div>
+      </div>
+    </div>
+</div>
 </body>
 </html>
+
+
+
+<script type="text/javascript">
+
+  $("#submit").on("click", function(event) {
+    event.preventDefault();
+
+   // $(".form-control").each(function() {
+   //    switch($(".form-control").val()) {
+   //    	case "":
+   //    	alert("You missed one")
+   //    	break;
+   //    }
+   //   });
+
+     if ($(".form-control").val() === "") {
+    return alert("You missed one or more questions. Please finish the survey.");
+      }
+    });
+
+    var newFriendData = {
+      name: $("#name").val().trim(),
+      photo: $("#photo").val().trim(),
+      scores: [
+      $("#q1").val(),
+      $("#q2").val(),
+      $("#q3").val(),
+      $("#q4").val(),
+      $("#q5").val(),
+      $("#q6").val(),
+      $("#q7").val(),
+      $("#q8").val(),
+      $("#q9").val(),
+      $("#q10").val()
+      ]
+    };
+
+    console.log(newFriendData);
+
+    $.post("/api/friends", newFriendData,
+      function(data) {
+      	$("#best-match-name").text(newFriendData.name);
+      	$("#best-match-image").attr("src", newFriendData.photo);
+      	$("#results-modal").modal("toggle");
+      	console.log(data);
+      })
+       });
+ 
+</script>
