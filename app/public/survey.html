@@ -17,7 +17,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<form>
+				<form name="myForm">
 					<h2>About You</h2>
 					<h3>Name (Required)</h3>
 	    			<input type="text" id="name" class="form-control form-group" required>
@@ -170,22 +170,24 @@
 
 <script type="text/javascript">
 
+
   $("#submit").on("click", function(event) {
     event.preventDefault();
-
-   // $(".form-control").each(function() {
-   //    switch($(".form-control").val()) {
-   //    	case "":
-   //    	alert("You missed one")
-   //    	break;
-   //    }
-   //   });
-
-     if ($(".form-control").val() === "") {
-    return alert("You missed one or more questions. Please finish the survey.");
+	var validate;
+  
+    function validateForm() {
+      if ($("#q1").val() === "" || $("#q2").val() === "" || $("#q3").val() === "" || $("#q4").val() === "" || $("#q5").val() === "" || $("#q6").val() === "" || $("#q7").val()=== "" || $("#q8").val()=== "" || $("#q9").val()=== "" || $("#q10").val()=== "" || $("#name").val()=== "" || $("#photo").val()=== "") { 
+      alert("You missed one or more questions. Fill out the entire form.");
+      validate = false;
+      return false;
       }
-    });
+      validate = true;
+      return true;
+    }
 
+  validateForm();
+
+  if (validate === true) {
     var newFriendData = {
       name: $("#name").val().trim(),
       photo: $("#photo").val().trim(),
@@ -210,8 +212,10 @@
       	$("#best-match-name").text(newFriendData.name);
       	$("#best-match-image").attr("src", newFriendData.photo);
       	$("#results-modal").modal("toggle");
-      	console.log(data);
-      })
-       });
+      	// console.log(data);
+      	console.log(newFriendData.scores);
+      });
+}
+});
  
 </script>
