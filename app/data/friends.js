@@ -34,7 +34,7 @@ var friendsArray = [
   },
 {
   "name":"Pusheen",
-  "photo":"http://www.lifewithcats.tv/wp-content/uploads/2016/03/pusheen-1.jpg",
+  "photo":"https://pbs.twimg.com/profile_images/848395594590814208/_TtPuzHs_400x400.jpg",
   "scores": [
       2,
       1,
