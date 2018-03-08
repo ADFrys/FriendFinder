@@ -210,8 +210,8 @@
 // Ajax call to post the best match friend api data in the modal
     $.post(currentURL + "/api/friends", newFriendData,
       function(data) {
-      	$("#best-match-name").text(newFriendData.name);
-      	$("#best-match-image").attr("src", newFriendData.photo);
+      	$("#best-match-name").text(data);
+      	$("#best-match-image").attr("src", data);
       	$("#results-modal").modal("toggle");
     });
   }
