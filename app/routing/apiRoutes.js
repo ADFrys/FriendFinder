@@ -19,6 +19,8 @@ module.exports = function(app) {
     var friendArrayInt = [];
     var friendDataArr = [];
     var totalDifferenceArr = []; 
+    var friendMatchit;
+    var friendMatchName;
 
 // For loop to push user provided scores (quiz answers) that are currently strings into the friend Array and change them into integers. 
     for (var i=0; i<friendArray.length; i++) {
@@ -69,12 +71,18 @@ module.exports = function(app) {
     var friendmatch = function() {
       for (var m=0; m<friendDataArr.length; m++) {
         if (friendDataArr[m].totalDifferenceCalc === closestMatch) {
-          console.log(friendDataArr[m].name);
-          return friendDataArr[m].name;
+          // console.log(friendDataArr[m].name);
+          friendMatchName = friendDataArr[m].name;
+          friendMatchit = m;
+          return m;
         }
       }
     }; 
     friendmatch();
-
+    console.log(friendMatchName);
+    console.log(friendData[friendMatchit]['photo']);
+    
+    res.json(friendMatchName + friendData[friendMatchit]['photo']);
   });
+
 };
