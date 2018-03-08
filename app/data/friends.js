@@ -3,7 +3,8 @@ var friendsArray = [
 {
   "name":"Mickey Mouse",
   "photo":"http://www.freepngimg.com/download/cartoon/4-2-cartoon-transparent.png",
-  "scores":[
+  "scores": 
+  [
       3,
       5,
       4,
@@ -19,7 +20,7 @@ var friendsArray = [
 {
   "name":"Lisa Simpson",
   "photo":"https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/Lisa_Simpson.png/220px-Lisa_Simpson.png",
-  "scores":[
+  "scores": [
       2,
       3,
       5,
@@ -35,7 +36,7 @@ var friendsArray = [
 {
   "name":"Pusheen",
   "photo":"http://www.lifewithcats.tv/wp-content/uploads/2016/03/pusheen-1.jpg",
-  "scores":[
+  "scores": [
       2,
       1,
       2,
@@ -51,7 +52,7 @@ var friendsArray = [
 {
   "name":"Taz",
   "photo":"http://www.cartoonspot.net/looney-tunes/wallpaper-images/taz-med9.jpg",
-  "scores":[
+  "scores": [
       5,
       3,
       2,
@@ -67,7 +68,7 @@ var friendsArray = [
   {
   "name":"Professor Frink",
   "photo":"https://www.selectspecs.com/blog/wp-content/uploads/2009/12/professorfrink1.gif",
-  "scores":[
+  "scores": [
       1,
       1,
       5,
@@ -83,7 +84,7 @@ var friendsArray = [
   {
   "name":"Tweety Bird",
   "photo":"https://digitalmode.net/wp-content/uploads/2017/01/tweety-bird.png",
-  "scores":[
+  "scores": [
       3,
       5,
       4,
