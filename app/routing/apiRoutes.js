@@ -36,8 +36,8 @@ module.exports = function(app) {
         name: friendDataTemp.name 
       }
 // Friend data (data from friend api) is looped through, converted from strings to integers and pushed into an array (which will be pushed into an object)
-      for (var k=0; k<friendDataTemp.scores.length; k++) {
-        friendDataInt.push(parseInt(friendDataTemp.scores[k]));
+      for (var k=0; k<friendDataTemp['scores[]'].length; k++) {
+        friendDataInt.push(parseInt(friendDataTemp['scores[]'][k]));
       }
 // The friendDataObj only contained friend names before, now it will contain the calculated difference between the users scores and the api friend scores. 
 // This happens when the calculateDifference function is called (see details below). This is pushed into the friend data object (array pushed into the object)
@@ -89,10 +89,7 @@ module.exports = function(app) {
       photo: friendData[friendMatchit]['photo']
       })
 
-  // If we were to post the user's data to the friend api, we would use:
-  // friendData.push(req.body);
-  // However, since this is cartoon characters, I decided not to post the user's
-  // quiz data / info to the friend api 
+  friendData.push(req.body);
 
   });
 
