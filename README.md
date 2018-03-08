@@ -8,6 +8,7 @@
 
 *In this app, I have created a Friend API that is utilized in this app.*
 
-*The app is hosted on heroku so you can see the full working app here: TBD*
+*The app is hosted on heroku so you can see the full working app here: 
+https://mighty-thicket-98959.herokuapp.com/*
 
 *To run this program using the code provided in Github, you will need to install the required npm packages (express and body-parser)*
