@@ -170,16 +170,16 @@
 
 <script type="text/javascript">
 
-
+// When the user clicks submit, validate the form
   $("#submit").on("click", function(event) {
     event.preventDefault();
 	var validate;
   
     function validateForm() {
       if ($("#q1").val() === "" || $("#q2").val() === "" || $("#q3").val() === "" || $("#q4").val() === "" || $("#q5").val() === "" || $("#q6").val() === "" || $("#q7").val()=== "" || $("#q8").val()=== "" || $("#q9").val()=== "" || $("#q10").val()=== "" || $("#name").val()=== "" || $("#photo").val()=== "") { 
-      alert("You missed one or more questions. Please fill out the entire survey.");
-      validate = false;
-      return false;
+        alert("You missed one or more questions. Please fill out the entire survey.");
+        validate = false;
+        return false;
       }
       validate = true;
       return true;
@@ -187,6 +187,7 @@
 
   validateForm();
 
+// If the form is valid, then grab the user input/score values into an object
   if (validate === true) {
     var newFriendData = {
       name: $("#name").val().trim(),
@@ -205,17 +206,15 @@
       ]
     };
 	var currentURL = window.location.origin;
-    console.log(newFriendData);
 
+// Ajax call to post the best match friend api data in the modal
     $.post(currentURL + "/api/friends", newFriendData,
       function(data) {
       	$("#best-match-name").text(newFriendData.name);
       	$("#best-match-image").attr("src", newFriendData.photo);
       	$("#results-modal").modal("toggle");
-      	// console.log(data);
-      	console.log(newFriendData.scores);
-      });
-}
+    });
+  }
 });
  
 </script>
