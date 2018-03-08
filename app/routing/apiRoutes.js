@@ -82,7 +82,10 @@ module.exports = function(app) {
     console.log(friendMatchName);
     console.log(friendData[friendMatchit]['photo']);
     
-    res.json(friendMatchName + friendData[friendMatchit]['photo']);
+    res.json({
+      name: friendMatchName,
+      photo: friendData[friendMatchit]['photo']
+      })
   });
 
 };
