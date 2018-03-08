@@ -82,10 +82,18 @@ module.exports = function(app) {
     console.log(friendMatchName);
     console.log(friendData[friendMatchit]['photo']);
     
+    // Create an object so the Ajax request will receive the name and photo on the front end
+    // of the best cartoon character friend match.
     res.json({
       name: friendMatchName,
       photo: friendData[friendMatchit]['photo']
       })
+
+  // If we were to post the user's data to the friend api, we would use:
+  // friendData.push(req.body);
+  // However, since this is cartoon characters, I decided not to post the user's
+  // quiz data / info to the friend api 
+
   });
 
 };
