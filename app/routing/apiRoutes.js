@@ -27,20 +27,20 @@ module.exports = function(app) {
       friendArrayInt.push(parseInt(friendArray[i]));
     }
 
-// Friend data (the data from the friend api), will be pushed into a temporary array (and ultimately into an object). 
+// Friend data (the data from the friend api), will be pushed into an object and ultimately into an array.
     for (var j=0; j<friendData.length; j++) {
       var friendDataTemp = friendData[j];
       var friendDataInt = [];
 // The for loop is adding every friend name (from the friend api) to the friend data object
       var friendDataObj = {
-        name: friendDataTemp.name 
+        name: friendDataTemp.name
       }
-// Friend data (data from friend api) is looped through, converted from strings to integers and pushed into an array (which will be pushed into an object)
+// Friend data (data from friend api) is looped through, converted from strings to integers and pushed into an array
       for (var k=0; k<friendDataTemp['scores[]'].length; k++) {
         friendDataInt.push(parseInt(friendDataTemp['scores[]'][k]));
       }
 // The friendDataObj only contained friend names before, now it will contain the calculated difference between the users scores and the api friend scores. 
-// This happens when the calculateDifference function is called (see details below). This is pushed into the friend data object (array pushed into the object)
+// This happens when the calculateDifference function is called (see details below). 
       friendDataObj.totalDifferenceCalc = calculateDifference(friendArrayInt, friendDataInt);
       friendDataArr.push(friendDataObj);
       }
@@ -71,7 +71,6 @@ module.exports = function(app) {
     var friendmatch = function() {
       for (var m=0; m<friendDataArr.length; m++) {
         if (friendDataArr[m].totalDifferenceCalc === closestMatch) {
-          // console.log(friendDataArr[m].name);
           friendMatchName = friendDataArr[m].name;
           friendMatchit = m;
           return m;
@@ -82,7 +81,7 @@ module.exports = function(app) {
     console.log(friendMatchName);
     console.log(friendData[friendMatchit]['photo']);
     
-    // Create an object so the Ajax request will receive the name and photo on the front end
+    // Create an object so the Ajax call will receive the name and photo on the front end
     // of the best cartoon character friend match.
     res.json({
       name: friendMatchName,
